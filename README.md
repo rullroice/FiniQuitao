@@ -110,8 +110,8 @@ Sueldo Bruto
 
 | Rol | Responsable |
 |---|---|
-| Backend + Base de datos | Raúl |
-| Frontend + Diseño | Por definir |
+| Backend + Base de datos | Raúl Ibarra Urizar |
+| Frontend + Diseño | Jhon Jairo Bustos |
 
 ---
 

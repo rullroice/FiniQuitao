@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="finiquito.css">
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-left">
+      <h1>Finiquito Laboral</h1>
+      <p>Documento de término de contrato</p>
+    </div>
+    <div class="header-right">
+      <div class="doc-num">N° {{id}}</div>
+      <div>Fecha de emisión</div>
+      <div class="fecha-valor">{{fechaEmision}}</div>
+    </div>
+  </div>
+  <div class="gold-band"></div>
+
+  <div class="body">
+
+    <div class="declaracion">
+      En conformidad con lo dispuesto en el Artículo 177 del Código del Trabajo de la República de Chile,
+      las partes suscriben el presente finiquito de contrato de trabajo, dejando constancia del término
+      de la relación laboral y de los haberes que corresponden al trabajador.
+    </div>
+
+    <div class="seccion">
+      <div class="seccion-titulo">I. Datos del Trabajador</div>
+      <div class="trabajador-header">
+        <div class="foto-box">{{foto}}</div>
+        <div class="trabajador-campos">
+          <div class="grid">
+            <div class="campo">
+              <label>Nombre completo</label>
+              <span>{{nombre}}</span>
+            </div>
+            <div class="campo">
+              <label>RUT</label>
+              <span>{{rut}}</span>
+            </div>
+            <div class="campo">
+              <label>Fecha de nacimiento</label>
+              <span>{{fechaNacimiento}}</span>
+            </div>
+            <div class="campo">
+              <label>Dirección</label>
+              <span>{{direccion}}</span>
+            </div>
+            <div class="campo">
+              <label>Sistema previsional</label>
+              <span>{{sistemaPrevisional}}</span>
+            </div>
+            <div class="campo">
+              <label>AFP / Institución</label>
+              <span>{{afpNombre}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="seccion">
+      <div class="seccion-titulo">II. Datos del Contrato</div>
+      <div class="grid-3">
+        <div class="campo">
+          <label>Cargo o función</label>
+          <span>{{cargo}}</span>
+        </div>
+        <div class="campo">
+          <label>Fecha de inicio</label>
+          <span>{{fechaInicio}}</span>
+        </div>
+        <div class="campo">
+          <label>Fecha de término</label>
+          <span>{{fechaTermino}}</span>
+        </div>
+        <div class="campo">
+          <label>Horas semanales</label>
+          <span>{{horasSemanales}} hrs.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="seccion">
+      <div class="seccion-titulo">III. Liquidación de Haberes</div>
+      <table class="tabla-remun">
+        <tr>
+          <td>Sueldo Bruto</td>
+          <td>{{sueldoBruto}}</td>
+        </tr>
+        <tr class="descuento">
+          <td>− Descuento AFP (10.5%)</td>
+          <td>{{descuentoAFP}}</td>
+        </tr>
+        <tr class="descuento">
+          <td>− Descuento Salud (7%)</td>
+          <td>{{descuentoSalud}}</td>
+        </tr>
+        <tr class="descuento">
+          <td>− Seguro de Cesantía (0.6%)</td>
+          <td>{{descuentoCesantia}}</td>
+        </tr>
+        <tr class="total-row">
+          <td>SUELDO LÍQUIDO A PAGAR</td>
+          <td>{{sueldoLiquido}}</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="firmas">
+      <div class="firma-box">
+        <div class="firma-espacio"></div>
+        <div class="firma-linea"></div>
+        <div class="firma-label">Firma del Empleador</div>
+      </div>
+      <div class="firma-box">
+        <div class="firma-espacio"></div>
+        <div class="firma-linea"></div>
+        <div class="firma-label">Firma del Trabajador</div>
+        <div class="firma-nombre">{{nombre}}</div>
+        <div class="firma-rut">{{rut}}</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>Documento generado electrónicamente — República de Chile</p>
+    <div class="sello">✓ Documento válido</div>
+    <p>Emisión: {{fechaEmision}} — Folio N° {{id}}</p>
+  </div>
+
+</body>
+</html>

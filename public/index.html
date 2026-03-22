@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Finiquito</title>
+</head>
+<body>
+  <h2>Test Backend</h2>
+  <form id="form">
+    <input name="nombre" placeholder="Nombre" value="Juan Pérez" /><br><br>
+    <input name="rut" placeholder="RUT" value="12.345.678-9" /><br><br>
+    <input name="fechaNacimiento" value="1990-05-15" /><br><br>
+    <input name="direccion" placeholder="Dirección" value="Calle Falsa 123" /><br><br>
+    <input name="sistemaPrevisional" value="AFP" /><br><br>
+    <input name="afpNombre" value="Habitat" /><br><br>
+    <input name="cargo" value="Desarrollador" /><br><br>
+    <input name="fechaInicio" value="2023-01-01" /><br><br>
+    <input name="fechaTermino" value="2025-03-22" /><br><br>
+    <input name="horasSemanales" value="45" /><br><br>
+    <input name="sueldoBase" value="800000" /><br><br>
+    <button type="button" onclick="enviar()">Generar PDF</button>
+  </form>
+
+  <script>
+    async function enviar() {
+      const form = document.getElementById('form');
+      const formData = new FormData(form);
+
+      const response = await fetch('/api/finiquito', {
+        method: 'POST',
+        body: formData
+      });
+
+      if (!response.ok) {
+        const err = await response.json();
+        alert('Error: ' + err.error);
+        return;
+      }
+
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'finiquito.pdf';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>

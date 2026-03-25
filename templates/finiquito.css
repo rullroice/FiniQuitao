@@ -13,212 +13,245 @@ body {
   background: #fff;
 }
 
-/* ── Encabezado ── */
+/* ── HEADER ── */
 .header {
-  background: #1a1a2e;
-  color: #fff;
-  padding: 28px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background: #0042AF;
+  padding: 0;
 }
 
-.header-left h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 22pt;
-  letter-spacing: 1px;
-  margin-bottom: 4px;
+.header-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.header-left p {
-  font-size: 9pt;
-  color: #a0aec0;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.header-right {
-  text-align: right;
-  font-size: 9pt;
-  color: #a0aec0;
-}
-
-.header-right .doc-num {
-  font-size: 13pt;
-  font-weight: 600;
-  color: #e2b96f;
-  margin-bottom: 4px;
-}
-
-.fecha-valor {
-  color: #fff;
-  font-size: 10pt;
-}
-
-/* ── Banda dorada ── */
-.gold-band {
-  height: 4px;
-  background: linear-gradient(to right, #e2b96f, #c8973a, #e2b96f);
-}
-
-/* ── Cuerpo ── */
-.body {
-  padding: 32px 40px;
-}
-
-/* ── Declaración ── */
-.declaracion {
-  background: #f7f9fc;
-  border-left: 4px solid #e2b96f;
-  padding: 14px 20px;
-  margin-bottom: 28px;
-  font-size: 10pt;
-  color: #4a5568;
-  line-height: 1.7;
-}
-
-/* ── Secciones ── */
-.seccion {
-  margin-bottom: 24px;
-}
-
-.seccion-titulo {
-  font-family: 'Playfair Display', serif;
-  font-size: 11pt;
-  color: #1a1a2e;
-  border-bottom: 1.5px solid #e2b96f;
-  padding-bottom: 6px;
-  margin-bottom: 14px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* ── Grids ── */
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px 32px;
-}
-
-.grid-3 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px 24px;
-}
-
-/* ── Campos ── */
-.campo {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.campo label {
-  font-size: 8pt;
-  color: #718096;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 600;
-}
-
-.campo span {
-  font-size: 10.5pt;
-  color: #1a1a2e;
-  border-bottom: 1px dashed #e2e8f0;
-  padding-bottom: 3px;
-}
-
-/* ── Foto ── */
-.trabajador-header {
-  display: flex;
-  gap: 24px;
-  align-items: flex-start;
-}
-
-.trabajador-campos {
-  flex: 1;
+.header-foto-cell {
+  width: 110px;
+  padding: 20px 16px 20px 24px;
+  vertical-align: middle;
 }
 
 .foto-box {
-  width: 90px;
-  height: 110px;
-  border: 2px solid #e2e8f0;
+  width: 80px;
+  height: 96px;
+  border: 2.5px solid rgba(254,241,208,0.6);
   border-radius: 6px;
   overflow: hidden;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f7f9fc;
+  background: rgba(255,255,255,0.1);
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
 }
 
 .foto-box img {
-  width: 100%;
-  height: 100%;
+  width: 80px;
+  height: 96px;
   object-fit: cover;
+  display: block;
 }
 
 .sin-foto {
   font-size: 8pt;
-  color: #a0aec0;
+  color: rgba(254,241,208,0.7);
+  display: block;
+  padding: 30px 8px;
   text-align: center;
 }
 
-/* ── Tabla remuneración ── */
-.tabla-remun {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 10.5pt;
+.header-title-cell {
+  padding: 22px 16px;
+  vertical-align: middle;
 }
 
-.tabla-remun tr td {
-  padding: 9px 14px;
+.header-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22pt;
+  color: #FEF1D0;
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+}
+
+.header-sub {
+  font-size: 9pt;
+  color: rgba(254,241,208,0.75);
+  margin-top: 5px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.header-legal {
+  font-size: 8pt;
+  color: rgba(254,241,208,0.5);
+  margin-top: 4px;
+}
+
+.header-num-cell {
+  width: 130px;
+  padding: 22px 24px 22px 16px;
+  vertical-align: middle;
+  text-align: right;
+}
+
+.doc-label {
+  font-size: 8pt;
+  color: rgba(254,241,208,0.6);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.doc-num {
+  font-size: 16pt;
+  font-weight: 700;
+  color: #FEF1D0;
+  margin: 2px 0 10px;
+}
+
+.doc-fecha-label {
+  font-size: 8pt;
+  color: rgba(254,241,208,0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.doc-fecha {
+  font-size: 10pt;
+  color: #FEF1D0;
+  margin-top: 2px;
+}
+
+/* ── BANDA ── */
+.banda-azul {
+  height: 5px;
+  background: #FEF1D0;
+}
+
+/* ── CUERPO ── */
+.cuerpo {
+  padding: 20px 36px;
+}
+
+/* ── DECLARACIÓN ── */
+.declaracion {
+  background: #f0f5ff;
+  border-left: 4px solid #0042AF;
+  padding: 10px 18px;
+  margin-bottom: 16px;
+  font-size: 9.5pt;
+  color: #4a5568;
+  line-height: 1.6;
+}
+/* ── TÍTULO DE SECCIÓN ── */
+.seccion-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 10.5pt;
+  color: #0042AF;
+  border-bottom: 2px solid #0042AF;
+  padding-bottom: 4px;
+  margin-bottom: 10px;
+  margin-top: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ── TABLA DE CAMPOS ── */
+.campos-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 4px;
+}
+
+.campo-cell {
+  padding: 5px 14px 5px 0;
+  vertical-align: top;
   border-bottom: 1px solid #edf2f7;
 }
 
-.tabla-remun tr td:last-child {
+.campo-label {
+  font-size: 7.5pt;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.campo-valor {
+  font-size: 10.5pt;
+  color: #1a1a2e;
+}
+
+/* ── TABLA REMUNERACIÓN ── */
+.tabla-remun {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 4px;
+}
+
+.remun-header-row td {
+  background: #e8effe;
+  color: #0042AF;
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 8px 14px;
+  border-bottom: 2px solid #0042AF;
+}
+
+.remun-row td {
+  padding: 7px 14px;
+  border-bottom: 1px solid #edf2f7;
+  font-size: 10.5pt;
+}
+
+.monto {
   text-align: right;
   font-weight: 600;
 }
 
-.tabla-remun .descuento td {
-  color: #e53e3e;
+.descuento td {
+  color: #c0392b;
 }
 
-.tabla-remun .descuento td:first-child {
+.descuento td:first-child {
   color: #4a5568;
 }
 
-.tabla-remun .total-row {
-  background: #1a1a2e;
+.total-row {
+  background: #0042AF;
 }
 
-.tabla-remun .total-row td {
-  color: #fff;
+.total-row td {
+  padding: 13px 14px;
   font-weight: 700;
   font-size: 12pt;
+  color: #fff;
   border-bottom: none;
-  padding: 12px 14px;
 }
 
-.tabla-remun .total-row td:last-child {
-  color: #e2b96f;
+.monto-total {
+  text-align: right;
+  color: #FEF1D0 !important;
 }
 
-/* ── Firmas ── */
-.firmas {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  margin-top: 40px;
+/* ── FIRMAS ── */
+.firmas-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 32px;
 }
 
-.firma-box {
+.firma-cell {
+  width: 45%;
   text-align: center;
+  vertical-align: bottom;
+}
+
+.firma-sep {
+  width: 10%;
 }
 
 .firma-espacio {
-  height: 50px;
+  height: 36px;
 }
 
 .firma-linea {
@@ -227,7 +260,7 @@ body {
 }
 
 .firma-label {
-  font-size: 9pt;
+  font-size: 8.5pt;
   color: #718096;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -241,30 +274,27 @@ body {
 }
 
 .firma-rut {
-  font-size: 9pt;
+  font-size: 8.5pt;
   color: #718096;
 }
 
-/* ── Footer ── */
+/* ── FOOTER ── */
 .footer {
-  background: #f7f9fc;
-  border-top: 1px solid #e2e8f0;
-  padding: 14px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 32px;
+  background: #f0f5ff;
+  border-top: 2px solid #0042AF;
+  padding: 10px 36px;
+  margin-top: 20px;
+  font-size: 8pt;
+  color: #718096;
+}
+.footer span {
+  display: inline-block;
+  margin-right: 24px;
 }
 
-.footer p {
-  font-size: 8pt;
-  color: #a0aec0;
-}
-
-.footer .sello {
-  font-size: 8pt;
-  color: #e2b96f;
-  font-weight: 600;
+.sello {
+  color: #0042AF;
+  font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
 }

@@ -1,50 +1,152 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Test Finiquito</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fini-Quitao | Generador Profesional</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>Test Backend</h2>
-  <form id="form">
-    <input name="nombre" placeholder="Nombre" value="Juan Pérez" /><br><br>
-    <input name="rut" placeholder="RUT" value="12.345.678-9" /><br><br>
-    <input name="fechaNacimiento" value="1990-05-15" /><br><br>
-    <input name="direccion" placeholder="Dirección" value="Calle Falsa 123" /><br><br>
-    <input name="sistemaPrevisional" value="AFP" /><br><br>
-    <input name="afpNombre" value="Habitat" /><br><br>
-    <input name="cargo" value="Desarrollador" /><br><br>
-    <input name="fechaInicio" value="2023-01-01" /><br><br>
-    <input name="fechaTermino" value="2025-03-22" /><br><br>
-    <input name="horasSemanales" value="45" /><br><br>
-    <input name="sueldoBase" value="800000" /><br><br>
-    <button type="button" onclick="enviar()">Generar PDF</button>
-  </form>
 
-  <script>
-    async function enviar() {
-      const form = document.getElementById('form');
-      const formData = new FormData(form);
+<button id="btnPollo" title="🐔">🐔</button>
 
-      const response = await fetch('/api/finiquito', {
-        method: 'POST',
-        body: formData
-      });
 
-      if (!response.ok) {
-        const err = await response.json();
-        alert('Error: ' + err.error);
-        return;
-      }
+<div id="modalPollo" class="modal-overlay" style="display:none;">
+    <div class="modal-box">
+        <p class="modal-title">🐔 Acceso Restringido</p>
+        <p class="modal-sub">Introduce la contraseña secreta</p>
+        <input type="text" id="inputPollo" placeholder="..." maxlength="10" autocomplete="off">
+        <div class="modal-btns">
+            <button id="btnCancelarPollo">Cancelar</button>
+            <button id="btnConfirmarPollo">Entrar</button>
+        </div>
+        <p id="modalError" style="display:none;">❌ Contraseña incorrecta</p>
+    </div>
+</div>
 
-      const blob = await response.blob();
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'finiquito.pdf';
-      a.click();
-      URL.revokeObjectURL(url);
-    }
-  </script>
+
+<div id="polloPantalla" style="display:none;">
+    <button id="btnCerrarPollo">✕ Cerrar</button>
+    <img id="gifPollo" src="assets/pollo-easteregg.gif" alt="Pollo del easter egg"/>
+</div>
+    <div class="container">
+        <header>
+            <div class="header-info">
+                <h1>Generador de Finiquito</h1>
+                <p>Conforme al Artículo 177 del Código del Trabajo</p>
+            </div>
+            <div id="avatar-container" class="avatar-preview">
+                <span>Foto</span>
+            </div>
+        </header>
+
+        <form id="form" class="form-content">
+            <div class="grid">
+                <div class="section-header full">1. Datos Personales</div>
+                <div class="input-group">
+                    <label>Nombre Completo</label>
+                    <input name="nombre" type="text" value="Juan Pérez" required>
+                </div>
+                <div class="input-group">
+                    <label>RUT</label>
+                    <input name="rut" type="text" value="12.345.678-9" required>
+                </div>
+                <div class="input-group">
+                    <label>Fecha de Nacimiento</label>
+                    <input name="fechaNacimiento" type="date" value="1990-05-15" required>
+                </div>
+                <div class="input-group">
+                    <label>Dirección</label>
+                    <input name="direccion" type="text" value="Calle Falsa 123">
+                </div>
+                <div class="input-group">
+                    <label>Sistema Previsional</label>
+                    <select name="sistemaPrevisional" id="selectSistema" onchange="toggleAFP()">
+                        <option value="AFP">AFP</option>
+                        <option value="INP">INP (Instituto Previsional)</option>
+                    </select>
+                </div>
+                <div class="input-group" id="grupo-afp">
+                    <label>AFP / Institución</label>
+                    <select name="afpNombre" id="selectAFP" onchange="actualizarCalculos()">
+                        <option value="Uno" data-tasa="0.1049">AFP Uno (10.49%)</option>
+                        <option value="Modelo" data-tasa="0.1058">AFP Modelo (10.58%)</option>
+                        <option value="Planvital" data-tasa="0.1116">AFP Planvital (11.16%)</option>
+                        <option value="Habitat" data-tasa="0.1127">AFP Habitat (11.27%)</option>
+                        <option value="Capital" data-tasa="0.1144">AFP Capital (11.44%)</option>
+                        <option value="Cuprum" data-tasa="0.1144">AFP Cuprum (11.44%)</option>
+                        <option value="ProVida" data-tasa="0.1145">AFP ProVida (11.45%)</option>
+                    </select>
+                </div>
+                <input type="hidden" name="afpTasa" id="inputAfpTasa" value="0.1049">
+
+                <div class="section-header full">2. Cargo y Contrato</div>
+                <div class="input-group">
+                    <label>Cargo / Función</label>
+                    <input name="cargo" type="text" value="Desarrollador">
+                </div>
+                <div class="input-group">
+                    <label>Horas Semanales</label>
+                    <input name="horasSemanales" type="number" value="45">
+                </div>
+                <div class="input-group">
+                    <label>Fecha Inicio</label>
+                    <input name="fechaInicio" type="date" value="2023-01-01">
+                </div>
+                <div class="input-group">
+                    <label>Fecha Término</label>
+                    <input name="fechaTermino" type="date" value="2025-03-22">
+                </div>
+
+                <div class="section-header full">3. Remuneración</div>
+                <div class="input-group full">
+                    <label>Sueldo Base Bruto (CLP)</label>
+                    <input id="inputSueldo" name="sueldoBase" type="number" value="800000">
+                </div>
+
+                <div class="preview-card full">
+                    <div class="preview-item">
+                        <small id="label-afp-pct">Descuento AFP (10.49%)</small>
+                        <strong id="label-afp">$0</strong>
+                    </div>
+                    <div class="preview-item">
+                        <small>Salud (7%)</small>
+                        <strong id="label-salud">$0</strong>
+                    </div>
+                    <div class="preview-item">
+                        <small>Seg. Cesantía (0.6%)</small>
+                        <strong id="label-cesantia">$0</strong>
+                    </div>
+                    <div class="preview-item total">
+                        <small>Sueldo Líquido Est.</small>
+                        <strong id="label-liquido">$0</strong>
+                    </div>
+                </div>
+
+                <div class="section-header full">4. Archivos Adjuntos</div>
+                <div class="input-group full">
+                <label>Foto del Trabajador</label>
+                <input type="file" name="foto" id="inputFoto" accept="image/jpeg,image/png">
+                </div>
+                <div class="input-group full">
+                     <label>Documento 1 (Contrato, Liquidación, etc.)</label>
+                <input type="file" name="documentos" accept=".pdf,.docx,.doc,.xlsx,.jpg,.png">
+                </div>
+                <div class="input-group full">
+                <label>Documento 2</label>
+                <input type="file" name="documentos" accept=".pdf,.docx,.doc,.xlsx,.jpg,.png">
+                </div>
+                <div class="input-group full">
+                    <label>Documento 3 (opcional)</label>
+                    <input type="file" name="documentos" accept=".pdf,.docx,.doc,.xlsx,.jpg,.png">
+                </div>
+            </div>
+
+            <button type="button" id="btnEnviar" class="btn-main">
+                <span id="btnText">Generar Finiquito PDF</span>
+            </button>
+        </form>
+    </div>
+    <script src="app.js"></script>
 </body>
 </html>

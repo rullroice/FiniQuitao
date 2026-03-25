@@ -3,7 +3,7 @@ const path = require('path');
 
 const db = new Database(path.join(__dirname, 'finiquitos.db'));
 
-// Crear tabla si no existe
+
 db.exec(`
   CREATE TABLE IF NOT EXISTS finiquitos (
     id          INTEGER PRIMARY KEY AUTOINCREMENT,

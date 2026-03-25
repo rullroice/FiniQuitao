@@ -7,19 +7,28 @@
 <body>
 
   <div class="header">
-    <div class="header-left">
-      <h1>Finiquito Laboral</h1>
-      <p>Documento de término de contrato</p>
-    </div>
-    <div class="header-right">
-      <div class="doc-num">N° {{id}}</div>
-      <div>Fecha de emisión</div>
-      <div class="fecha-valor">{{fechaEmision}}</div>
-    </div>
+    <table class="header-table">
+      <tr>
+        <td class="header-foto-cell">
+          <div class="foto-box">{{foto}}</div>
+        </td>
+        <td class="header-title-cell">
+          <div class="header-title">Finiquito Laboral</div>
+          <div class="header-sub">Documento de Término de Contrato</div>
+          <div class="header-legal">Art. 177 — Código del Trabajo de Chile</div>
+        </td>
+        <td class="header-num-cell">
+          <div class="doc-label">FOLIO</div>
+          <div class="doc-num">N° {{id}}</div>
+          <div class="doc-fecha-label">Emisión</div>
+          <div class="doc-fecha">{{fechaEmision}}</div>
+        </td>
+      </tr>
+    </table>
   </div>
-  <div class="gold-band"></div>
+  <div class="banda-azul"></div>
 
-  <div class="body">
+  <div class="cuerpo">
 
     <div class="declaracion">
       En conformidad con lo dispuesto en el Artículo 177 del Código del Trabajo de la República de Chile,
@@ -27,110 +36,114 @@
       de la relación laboral y de los haberes que corresponden al trabajador.
     </div>
 
-    <div class="seccion">
-      <div class="seccion-titulo">I. Datos del Trabajador</div>
-      <div class="trabajador-header">
-        <div class="foto-box">{{foto}}</div>
-        <div class="trabajador-campos">
-          <div class="grid">
-            <div class="campo">
-              <label>Nombre completo</label>
-              <span>{{nombre}}</span>
-            </div>
-            <div class="campo">
-              <label>RUT</label>
-              <span>{{rut}}</span>
-            </div>
-            <div class="campo">
-              <label>Fecha de nacimiento</label>
-              <span>{{fechaNacimiento}}</span>
-            </div>
-            <div class="campo">
-              <label>Dirección</label>
-              <span>{{direccion}}</span>
-            </div>
-            <div class="campo">
-              <label>Sistema previsional</label>
-              <span>{{sistemaPrevisional}}</span>
-            </div>
-            <div class="campo">
-              <label>AFP / Institución</label>
-              <span>{{afpNombre}}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="seccion-titulo">I. Datos del Trabajador</div>
+    <table class="campos-tabla">
+      <tr>
+        <td class="campo-cell">
+          <div class="campo-label">Nombre Completo</div>
+          <div class="campo-valor">{{nombre}}</div>
+        </td>
+        <td class="campo-cell">
+          <div class="campo-label">RUT</div>
+          <div class="campo-valor">{{rut}}</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="campo-cell">
+          <div class="campo-label">Fecha de Nacimiento</div>
+          <div class="campo-valor">{{fechaNacimiento}}</div>
+        </td>
+        <td class="campo-cell">
+          <div class="campo-label">Dirección</div>
+          <div class="campo-valor">{{direccion}}</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="campo-cell">
+          <div class="campo-label">Sistema Previsional</div>
+          <div class="campo-valor">{{sistemaPrevisional}}</div>
+        </td>
+        <td class="campo-cell">
+          <div class="campo-label">AFP / Institución</div>
+          <div class="campo-valor">{{afpNombre}}</div>
+        </td>
+      </tr>
+    </table>
 
-    <div class="seccion">
-      <div class="seccion-titulo">II. Datos del Contrato</div>
-      <div class="grid-3">
-        <div class="campo">
-          <label>Cargo o función</label>
-          <span>{{cargo}}</span>
-        </div>
-        <div class="campo">
-          <label>Fecha de inicio</label>
-          <span>{{fechaInicio}}</span>
-        </div>
-        <div class="campo">
-          <label>Fecha de término</label>
-          <span>{{fechaTermino}}</span>
-        </div>
-        <div class="campo">
-          <label>Horas semanales</label>
-          <span>{{horasSemanales}} hrs.</span>
-        </div>
-      </div>
-    </div>
+    <div class="seccion-titulo">II. Datos del Contrato</div>
+    <table class="campos-tabla">
+      <tr>
+        <td class="campo-cell" style="width:34%">
+          <div class="campo-label">Cargo o Función</div>
+          <div class="campo-valor">{{cargo}}</div>
+        </td>
+        <td class="campo-cell" style="width:22%">
+          <div class="campo-label">Fecha de Inicio</div>
+          <div class="campo-valor">{{fechaInicio}}</div>
+        </td>
+        <td class="campo-cell" style="width:22%">
+          <div class="campo-label">Fecha de Término</div>
+          <div class="campo-valor">{{fechaTermino}}</div>
+        </td>
+        <td class="campo-cell" style="width:22%">
+          <div class="campo-label">Horas Semanales</div>
+          <div class="campo-valor">{{horasSemanales}} hrs.</div>
+        </td>
+      </tr>
+    </table>
 
-    <div class="seccion">
-      <div class="seccion-titulo">III. Liquidación de Haberes</div>
-      <table class="tabla-remun">
-        <tr>
-          <td>Sueldo Bruto</td>
-          <td>{{sueldoBruto}}</td>
-        </tr>
-        <tr class="descuento">
-          <td>− Descuento AFP (10.5%)</td>
-          <td>{{descuentoAFP}}</td>
-        </tr>
-        <tr class="descuento">
-          <td>− Descuento Salud (7%)</td>
-          <td>{{descuentoSalud}}</td>
-        </tr>
-        <tr class="descuento">
-          <td>− Seguro de Cesantía (0.6%)</td>
-          <td>{{descuentoCesantia}}</td>
-        </tr>
-        <tr class="total-row">
-          <td>SUELDO LÍQUIDO A PAGAR</td>
-          <td>{{sueldoLiquido}}</td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="firmas">
-      <div class="firma-box">
-        <div class="firma-espacio"></div>
-        <div class="firma-linea"></div>
-        <div class="firma-label">Firma del Empleador</div>
-      </div>
-      <div class="firma-box">
-        <div class="firma-espacio"></div>
-        <div class="firma-linea"></div>
-        <div class="firma-label">Firma del Trabajador</div>
-        <div class="firma-nombre">{{nombre}}</div>
-        <div class="firma-rut">{{rut}}</div>
-      </div>
-    </div>
+    <div class="seccion-titulo">III. Liquidación de Haberes</div>
+    <table class="tabla-remun">
+      <tr class="remun-header-row">
+        <td>Concepto</td>
+        <td style="text-align:right">Monto</td>
+      </tr>
+      <tr class="remun-row">
+        <td>Sueldo Bruto</td>
+        <td class="monto">{{sueldoBruto}}</td>
+      </tr>
+      <tr class="remun-row descuento">
+        <td>− Descuento AFP {{afpNombre}} ({{afpPorcentaje}})</td>
+        <td class="monto">{{descuentoAFP}}</td>
+      </tr>
+      <tr class="remun-row descuento">
+        <td>− Descuento Salud (7%)</td>
+        <td class="monto">{{descuentoSalud}}</td>
+      </tr>
+      <tr class="remun-row descuento">
+        <td>− Seguro de Cesantía (0.6%)</td>
+        <td class="monto">{{descuentoCesantia}}</td>
+      </tr>
+      <tr class="total-row">
+        <td>SUELDO LÍQUIDO A PAGAR</td>
+        <td class="monto-total">{{sueldoLiquido}}</td>
+      </tr>
+    </table>
+        {{documentosAdjuntos}}
+    <table class="firmas-tabla">
+      <tr>
+        <td class="firma-cell">
+          <div class="firma-espacio"></div>
+          <div class="firma-linea"></div>
+          <div class="firma-label">Firma del Empleador</div>
+        </td>
+        <td class="firma-sep"></td>
+        <td class="firma-cell">
+          <div class="firma-espacio"></div>
+          <div class="firma-linea"></div>
+          <div class="firma-label">Firma del Trabajador</div>
+          <div class="firma-nombre">{{nombre}}</div>
+          <div class="firma-rut">{{rut}}</div>
+        </td>
+      </tr>
+    </table>
 
   </div>
 
   <div class="footer">
-    <p>Documento generado electrónicamente — República de Chile</p>
-    <div class="sello">✓ Documento válido</div>
-    <p>Emisión: {{fechaEmision}} — Folio N° {{id}}</p>
+    <span>Documento generado electrónicamente — República de Chile</span>
+    <span class="sello">✓ Documento válido</span>
+    <span>Folio N° {{id}} — {{fechaEmision}}</span>
   </div>
 
 </body>
